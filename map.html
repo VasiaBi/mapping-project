@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="map.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
+        </script>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        const map = L.map('map')
+        map.locate({ setView: true, maxZoom: 16 });
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Event listener for when location is found
+        map.on('locationfound', function (e) {
+            // The event object (e) contains the location information
+            let coords = e.latlng; // e.latlng is a LatLng object with the user's coordinates
+
+            // Access latitude and longitude like this:
+            let lat = coords.lat;
+            let lng = coords.lng;
+
+            console.log("Latitude: " + lat + ", Longitude: " + lng);
+
+            // Optionally, you can add a marker at the user's location
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup('Είστε εδώ!').openPopup();
+        });
+
+        // Event listener for when location is not found or has an error
+        map.on('locationerror', function (e) {
+            alert(e.message);
+        });
+        fetch('./geodata.json')
+            .then(response => response.json())
+            .then(data => {
+                // create popups and pins with the data
+                data.map((point) => {
+                    const coords = point.geometry.coordinates;
+                    const img = point.properties.thumbnail;
+                    console.log(coords, img);
+                    L.marker(coords.reverse(), { opacity: 0.7 }).addTo(map)
+                        .bindPopup(`<h2>H εικόνα είναι:</p><img src="${img}" alt="Image" style="width: 300px;">`, { autoClose: false })
+                        .openPopup();
+                });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+</body>
+
+</html>

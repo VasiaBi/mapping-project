@@ -1,0 +1,93 @@
+[
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                21.765914972222223,
+                38.291422999999995
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240107_153223.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                21.426926,
+                38.325059
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240203_135312.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                22.850360972222223,
+                38.028607
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240210_165625.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                21.775037972222222,
+                38.25708497222222
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240218_143038.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                21.833124972222222,
+                40.78732897222222
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240315_180631.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                21.786449972222226,
+                40.93081897222222
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240316_133707.jpg.thumbnail.jpg"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                22.306601,
+                40.494508
+            ]
+        },
+        "properties": {
+            "thumbnail": "./assets/IMG_20240318_115008.jpg.thumbnail.jpg"
+        }
+    }
+]
